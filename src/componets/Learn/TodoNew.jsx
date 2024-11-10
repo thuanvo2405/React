@@ -6,8 +6,8 @@ const TodoNew = (props) => {
     const [InputValue, SetInputValue] = useState("Thuan");
 
     const HandleOnClick = () => {
-        console.log(InputValue);
         MyFunction(InputValue);
+        SetInputValue("");
     }
 
     const HandleOnChange = (name) => {
@@ -15,7 +15,8 @@ const TodoNew = (props) => {
     }
 
     return (<div className="input-container">
-        <input type="text" onChange={(event) => HandleOnChange(event.target.value)} />
+        <input type="text" onChange={(event) => HandleOnChange(event.target.value)}
+            value={InputValue} />
         <button onClick={HandleOnClick}>Add</button>
         <div>{InputValue}</div>
     </div>);

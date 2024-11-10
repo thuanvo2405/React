@@ -1,9 +1,14 @@
 const TodoData = (props) => {
     const { TodoList } = props;
+    console.log(TodoList)
     return (<div className="todo-data">
-        <div>{JSON.stringify(TodoList)}</div>
-
-    </div>);
+        {TodoList.map((item, index) => {
+            return (<div className={`todo-item`} key={item.id}>
+                <div>{item.name}</div>
+                <button>Delete</button>
+            </div>)
+        })}
+    </div >);
 }
 
 export default TodoData;

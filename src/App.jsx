@@ -4,10 +4,7 @@ import ReactLogo from "./assets/react.svg"
 import TodoData from "./componets/Learn/TodoData"
 import { useState } from "react"
 const App = () => {
-  const [TodoList, SetTodoList] = useState([
-    { id: "1", name: "Learning React" },
-    { id: "2", name: "Aim Routine" }
-  ]);
+  const [TodoList, SetTodoList] = useState([  ]);
 
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
