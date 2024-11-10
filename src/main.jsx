@@ -1,6 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import "./styles/global.css"
+import ProductPage from "./pages/product.jsx"
+import UserPage from "./pages/user.jsx"
+import RegisterPage from "./pages/register.jsx"
+import LoginPage from "./pages/login.jsx"
 
 import {
   createBrowserRouter,
@@ -14,16 +19,16 @@ const router = createBrowserRouter([
   },
   {
     path: "/user",
-    element: <div>User</div>,
+    element: <UserPage />,
   }, {
     path: "/login",
-    element: <div>login</div>,
+    element: <LoginPage />,
   }, {
     path: "/register",
-    element: <div>register</div>,
+    element: <RegisterPage />,
   }, {
     path: "/product",
-    element: <div>product</div>,
+    element: <ProductPage />,
   },
 ]);
 
