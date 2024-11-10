@@ -5,6 +5,7 @@ import TodoData from "./componets/Learn/TodoData"
 import { useState } from "react"
 import Header from "./componets/layout/header"
 import Footer from "./componets/layout/footer"
+import { Outlet } from "react-router-dom"
 const App = () => {
   const [TodoList, SetTodoList] = useState([]);
 
@@ -29,6 +30,7 @@ const App = () => {
 
   return (
     <>
+      <Outlet />
       <Header />
       <div className='todo-container'>
         <div className='todo-title'>Todo List</div>
