@@ -2,12 +2,12 @@ import { useState } from "react";
 
 const TodoNew = (props) => {
     const { MyFunction } = props;
-    MyFunction();
 
     const [InputValue, SetInputValue] = useState("Thuan");
 
     const HandleOnClick = () => {
         console.log(InputValue);
+        MyFunction(InputValue);
     }
 
     const HandleOnChange = (name) => {

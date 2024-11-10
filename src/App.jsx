@@ -9,12 +9,22 @@ const App = () => {
     { id: "2", name: "Aim Routine" }
   ]);
 
-  const MyFunction = () => {
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  const HandleClickAdd = (name) => {
+    const NewTodo = {
+      id: getRandomInt(1, 100000000),
+      name: name
+    };
+
+    SetTodoList([...TodoList, NewTodo]);
   }
   return (
     <div className='todo-container'>
       <div className='todo-title'>Todo List</div>
-      <TodoNew MyFunction={MyFunction} />
+      <TodoNew MyFunction={HandleClickAdd} />
       <TodoData TodoList={TodoList} />
       <div>
         <img src={ReactLogo} alt="" className="logo" />
