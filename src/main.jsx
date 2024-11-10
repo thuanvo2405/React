@@ -6,6 +6,7 @@ import ProductPage from "./pages/product.jsx"
 import UserPage from "./pages/user.jsx"
 import RegisterPage from "./pages/register.jsx"
 import LoginPage from "./pages/login.jsx"
+import TodoApp from './componets/Learn/TodoApp.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
+      { index: true, element: <TodoApp /> },
       {
         path: "/product",
         element: <ProductPage />,
