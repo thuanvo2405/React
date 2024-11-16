@@ -7,6 +7,7 @@ import { fetchAllUser } from '../service/api.service';
 const userPage = () => {
     const [dataUsers, setDataUsers] = useState([]);
 
+
     useEffect(() => {
         loadUser();
     }, []);
