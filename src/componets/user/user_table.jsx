@@ -3,7 +3,7 @@ import UpdateUserModal from './update_user';
 import { useState } from "react";
 
 const UserTable = (props) => {
-    const { dataUsers } = props;
+    const { dataUsers, loadUser } = props;
     const [isModalUpdateOpen, setisModalUpdateOpen] = useState(false);
     const [dataUpdate, setDataUpdate] = useState(null);
     const columns = [
@@ -19,7 +19,7 @@ const UserTable = (props) => {
         },
         {
             title: 'Full name',
-            dataIndex: 'full name',
+            dataIndex: 'fullName',
         },
         {
             title: 'Email',
@@ -50,7 +50,7 @@ const UserTable = (props) => {
     return <>
         <Table columns={columns} dataSource={dataUsers} rowKey={"_id"} />
         <UpdateUserModal setisModalUpdateOpen={setisModalUpdateOpen} isModalUpdateOpen={isModalUpdateOpen}
-            dataUpdate={dataUpdate} setDataUpdate={setDataUpdate} />
+            dataUpdate={dataUpdate} setDataUpdate={setDataUpdate} loadUser={loadUser} />
     </>
 };
 export default UserTable;
