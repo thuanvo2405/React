@@ -2,7 +2,8 @@ import { Input, Button, notification, Table, Modal } from "antd";
 import axios from "axios";
 import { useState } from "react";
 import { createUserAPI } from "../../service/api.service";
-const UserForm = () => {
+const UserForm = (props) => {
+    const { loadUser } = props
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
@@ -17,13 +18,23 @@ const UserForm = () => {
                 message: "Create user",
                 description: "Tao User thanh cong"
             })
-            setIsModalOpen(false);
+            resetAndCloseModal();
+            await loadUser();
         } else {
             notification.error({
                 message: "Error Create user",
                 description: JSON.stringify(res.message)
             })
         }
+    }
+
+
+    const resetAndCloseModal = () => {
+        setIsModalOpen(false);
+        setFullName("");
+        setEmail("");
+        setPassword("");
+        setphone("");
     }
 
     return (
@@ -37,7 +48,7 @@ const UserForm = () => {
                     >Create User</Button>
                 </div>
             </div>
-            <Modal title="Basic Modal" open={isModalOpen} onOk={() => handleSubmitBtn()} onCancel={() => setIsModalOpen(false)}>
+            <Modal title="Basic Modal" open={isModalOpen} onOk={() => handleSubmitBtn()} onCancel={() => resetAndCloseModal(false)}>
                 <div style={{ display: "flex", gap: "10px", flexDirection: "column" }}>
                     <div>
                         <span>Full Name</span>
