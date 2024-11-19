@@ -1,4 +1,4 @@
-import { Input, Button, notification, Table, Modal } from "antd";
+import { Input, Button, notification, Modal } from "antd";
 import axios from "axios";
 import { useState } from "react";
 import { createUserAPI } from "../../service/api.service";

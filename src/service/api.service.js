@@ -1,4 +1,6 @@
 import axios from "./axios.customize"
+const config = { headers: { Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBob25lIjoiMTIzNDU2Nzg5IiwiZnVsbE5hbWUiOiJJJ20gQWRtaW4iLCJyb2xlIjoiQURNSU4iLCJzdWIiOiI2NzM4NTBjYTZkMGE5ZjlhZWIzMDUxNTIiLCJhdmF0YXIiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMy5wbmciLCJpYXQiOjE3MzIwMDE3NzksImV4cCI6MTczMjAzNzc3OX0.nhpf9JFWGTM2OdHakYweEy_5S94d_xvMXkgxQlDtvT8` } };
+
 const updateUserAPI = (_id, fullName, phone) => {
     const URL_BACKEND = "/api/v1/user";
     const data = {
@@ -6,7 +8,6 @@ const updateUserAPI = (_id, fullName, phone) => {
         fullName: fullName,
         phone: phone,
     }
-    const config = { headers: { Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBob25lIjoiMTIzNDU2Nzg5IiwiZnVsbE5hbWUiOiJJJ20gQWRtaW4iLCJyb2xlIjoiQURNSU4iLCJzdWIiOiI2NzMyMTY2Yzc1YTVjODcyNGIxZmIwNTYiLCJhdmF0YXIiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMy5wbmciLCJpYXQiOjE3MzE3MjYwMjgsImV4cCI6MTczMTc2MjAyOH0.X-DAaiWGGJDnVYZBiMsSbsFw8UQ1q-ut8BoLywQLieo` } };
     return axios.put(URL_BACKEND, data, config);
 }
 
@@ -18,18 +19,24 @@ const createUserAPI = (fullName, email, password, phone) => {
         password: password,
         phone: phone,
     }
-    const config = { headers: { Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBob25lIjoiMTIzNDU2Nzg5IiwiZnVsbE5hbWUiOiJJJ20gQWRtaW4iLCJyb2xlIjoiQURNSU4iLCJzdWIiOiI2NzMyMTY2Yzc1YTVjODcyNGIxZmIwNTYiLCJhdmF0YXIiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMy5wbmciLCJpYXQiOjE3MzE3MjYwMjgsImV4cCI6MTczMTc2MjAyOH0.X-DAaiWGGJDnVYZBiMsSbsFw8UQ1q-ut8BoLywQLieo` } };
     return axios.post(URL_BACKEND, data, config);
 }
 
+
+const deleteUserAPI = (_id) => {
+    const URL_BACKEND = `/api/v1/user/${_id}`;
+    return axios.delete(URL_BACKEND, config);
+}
+
+
 const fetchAllUser = () => {
     const URL_BACKEND = "/api/v1/user";
-    const config = { headers: { Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBob25lIjoiMTIzNDU2Nzg5IiwiZnVsbE5hbWUiOiJJJ20gQWRtaW4iLCJyb2xlIjoiQURNSU4iLCJzdWIiOiI2NzMyMTY2Yzc1YTVjODcyNGIxZmIwNTYiLCJhdmF0YXIiOiIyMTIzMmYyOTdhNTdhNWE3NDM4OTRhMGU0YTgwMWZjMy5wbmciLCJpYXQiOjE3MzE3MjYwMjgsImV4cCI6MTczMTc2MjAyOH0.X-DAaiWGGJDnVYZBiMsSbsFw8UQ1q-ut8BoLywQLieo` } };
     return axios.get(URL_BACKEND, config);
 }
 
 export {
     createUserAPI,
     updateUserAPI,
-    fetchAllUser
+    fetchAllUser,
+    deleteUserAPI
 }
